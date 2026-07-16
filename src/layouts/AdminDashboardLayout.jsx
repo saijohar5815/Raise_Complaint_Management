@@ -27,39 +27,39 @@ function Sidebar({ open, onClose }) {
     <>
       {open && <div className="fixed inset-0 bg-black/40 z-30 lg:hidden" onClick={onClose} />}
       <aside className={cn(
-        'fixed top-0 left-0 h-full z-40 w-64 bg-[#1E1A16] flex flex-col',
+        'fixed top-0 left-0 h-full z-40 w-64 bg-sidebar border-r border-border-theme flex flex-col',
         'transition-transform duration-300 ease-in-out',
         'lg:translate-x-0 lg:static lg:z-auto',
         open ? 'translate-x-0' : '-translate-x-full'
       )}>
         {/* Logo */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-border-theme">
           <Link to="/admin/dashboard" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shrink-0">
-              <Shield className="w-4 h-4 text-white" />
-            </div>
+          <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm shrink-0">
+  <img src="https://images.seeklogo.com/logo-png/37/1/bni-2020-logo-png_seeklogo-378515.png" alt="ResolveX logo" className="w-full h-full object-cover" />
+</div>
             <div>
-              <span className="font-bold text-white text-lg tracking-tight">ResolveX</span>
+              <span className="font-bold text-text-theme text-lg tracking-tight">ResolveX</span>
               <span className="ml-1.5 text-[9px] font-semibold text-primary bg-primary/10 px-1.5 py-0.5 rounded-md uppercase tracking-wide">Admin</span>
             </div>
           </Link>
-          <button onClick={onClose} className="lg:hidden p-1.5 rounded-lg hover:bg-white/10 text-white/60"><X className="w-4 h-4" /></button>
+          <button onClick={onClose} className="lg:hidden p-1.5 rounded-lg hover:bg-bg-alt text-muted-theme"><X className="w-4 h-4" /></button>
         </div>
 
         {/* Admin user */}
-        <div className="mx-4 mt-4 mb-2 p-3 rounded-xl bg-white/5 border border-white/10">
+        <div className="mx-4 mt-4 mb-2 p-3 rounded-xl bg-card border border-border-theme">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm shrink-0">{initials}</div>
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-white truncate">{name}</p>
-              <p className="text-xs text-white/50 truncate">{email}</p>
+              <p className="text-sm font-semibold text-text-theme truncate">{name}</p>
+              <p className="text-xs text-muted-theme truncate">{email}</p>
             </div>
           </div>
         </div>
 
         {/* Navigation */}
         <nav className="flex-1 px-3 py-2 space-y-0.5 overflow-y-auto">
-          <p className="px-2 py-1.5 text-[10px] font-semibold text-white/30 uppercase tracking-wider">Management</p>
+          <p className="px-2 py-1.5 text-[10px] font-semibold text-subtle-theme uppercase tracking-wider">Management</p>
           {NAV_ITEMS.map(({ to, icon: Icon, label, end }) => (
             <NavLink
               key={to}
@@ -70,7 +70,7 @@ function Sidebar({ open, onClose }) {
                 'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150',
                 isActive
                   ? 'bg-primary text-white shadow-sm'
-                  : 'text-white/60 hover:bg-white/8 hover:text-white'
+                  : 'text-muted-theme hover:bg-bg-alt hover:text-text-theme'
               )}
             >
               <Icon className="w-4 h-4 shrink-0" />
@@ -80,7 +80,7 @@ function Sidebar({ open, onClose }) {
         </nav>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 px-3 py-3">
+        <div className="border-t border-border-theme px-3 py-3">
           <button
             onClick={signOut}
             className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-400 hover:bg-red-500/10 transition-all duration-150 text-left"
