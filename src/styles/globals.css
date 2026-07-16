@@ -105,14 +105,11 @@
 
 html {
   scroll-behavior: smooth;
-  height: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow: hidden;
   font-family: Inter, sans-serif;
   background: var(--bg);
   color: var(--text);
@@ -120,27 +117,22 @@ body {
   transition: .3s;
 }
 
-/* ==========================================================
-   SINGLE-SCREEN LANDING PAGE LAYOUT
-   Root app wrapper becomes a 100vh flex column:
-   header (auto) -> hero (fills remaining space) -> footer (auto)
-   Nothing scrolls; everything is sized to fit one viewport.
-========================================================== */
-
-#__next,
-#root,
-body > div:first-child {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+/* Page scrolls normally — main just needs bottom breathing room
+   before the footer, restored per breakpoint below. */
+main.bg-bg.text-text-theme {
+  padding-bottom: 120px;
 }
 
-main.bg-bg.text-text-theme {
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 0 !important;
+@media (max-width: 1024px) {
+  main.bg-bg.text-text-theme {
+    padding-bottom: 96px;
+  }
+}
+
+@media (max-width: 768px) {
+  main.bg-bg.text-text-theme {
+    padding-bottom: 64px;
+  }
 }
 
 /* ==========================================================
@@ -429,8 +421,6 @@ svg {
 ========================================================== */
 
 header.fixed.top-0.left-0.right-0.z-50 {
-  position: relative !important;
-  flex-shrink: 0;
   height: 72px;
 }
 
@@ -459,14 +449,25 @@ header.scrolled {
 section[aria-label="Hero"] {
   display: grid;
   grid-template-columns: 1fr;
-  flex: 1 1 auto;
-  min-height: 0;
+  min-height: calc(100vh - 80px);
   align-items: center;
-  margin-top: 0;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  margin-top: 80px;
+  padding-top: 48px;
+  padding-bottom: 64px;
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  section[aria-label="Hero"] {
+    margin-top: 72px;
+  }
+}
+
+@media (max-width: 768px) {
+  section[aria-label="Hero"] {
+    margin-top: 64px;
+  }
 }
 
 section[aria-label="Hero"]::before {
@@ -525,11 +526,6 @@ section[aria-label="Hero"] .grid {
   section[aria-label="Hero"] .grid {
     grid-template-columns: 1fr;
   }
-  /* Stacked layout can't fit both columns in one screen — scroll
-     inside the hero only, keeping header/footer pinned in place. */
-  section[aria-label="Hero"] {
-    overflow-y: auto;
-  }
 }
 
 @media (max-width: 768px) {
@@ -556,6 +552,8 @@ section[aria-label="Hero"] h1 {
   text-align: left;
   font-size: 3rem;
   line-height: 1.06;
+  letter-spacing: -0.02em;
+  word-spacing: -0.05em;
   margin-bottom: 0;
   animation: heroFadeUp .8s ease both;
 }
@@ -587,14 +585,15 @@ section[aria-label="Hero"] h1 {
 /* Description */
 section[aria-label="Hero"] p.text-lg {
   max-width: 56ch;
-  font-size: 18px;
-  line-height: 1.5;
-  margin-top: 16px;
+  font-size: 20px;
+  line-height: 1.45;
+  word-spacing: -0.03em;
+  margin-top: 20px;
   animation: heroFadeUp .8s ease both;
 }
 
 section[aria-label="Hero"] p.text-lg + .flex {
-  margin-top: 24px;
+  margin-top: 32px;
 }
 
 /* Stats row */
@@ -602,8 +601,8 @@ section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10 {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-top: 24px;
-  margin-bottom: 0.5rem;
+  margin-top: 32px;
+  margin-bottom: 0.75rem;
   animation: heroFadeUp .8s ease both;
 }
 
@@ -616,8 +615,8 @@ section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10 {
 
 /* Each stat card */
 section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10 > .flex.flex-col.items-start.px-4.py-3 {
-  padding: 16px 20px;
-  border-radius: 16px;
+  padding: 24px;
+  border-radius: 20px;
   background: var(--card);
   border: 1px solid var(--border-soft);
   box-shadow: 0 8px 30px rgba(0, 0, 0, .06);
@@ -631,7 +630,7 @@ section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10 > .flex.flex-col.items-st
 /* Feature / trust indicators row */
 section[aria-label="Hero"] .flex.flex-wrap.items-center {
   gap: 24px;
-  margin-top: 20px;
+  margin-top: 28px;
 }
 
 /* Minor spacing corrections used across the hero */
@@ -655,9 +654,9 @@ section[aria-label="Hero"] .grid > div:last-child {
 }
 
 section[aria-label="Hero"] .relative.w-full.max-w-\[420px\] {
-  max-width: 440px;
-  padding: 28px;
-  border-radius: 24px;
+  max-width: 480px;
+  padding: 40px;
+  border-radius: 28px;
   background: var(--card);
   border: 1px solid var(--border-soft);
   box-shadow: 0 30px 80px rgba(0, 0, 0, .08);
@@ -667,14 +666,20 @@ section[aria-label="Hero"] .relative.w-full.max-w-\[420px\] {
 
 section[aria-label="Hero"] .relative.w-full.max-w-\[420px\] .p-7,
 section[aria-label="Hero"] .relative.w-full.max-w-\[420px\] .p-8 {
-  padding: 28px;
+  padding: 40px;
 }
 
 /* Hero container padding */
 section[aria-label="Hero"] .container-custom {
-  padding-top: 0;
-  padding-bottom: 0;
-  height: 100%;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  section[aria-label="Hero"] .container-custom {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
 }
 
 /* ==========================================================
@@ -696,13 +701,8 @@ section[aria-label="Hero"] .container-custom {
 ========================================================== */
 
 footer {
-  flex-shrink: 0;
-  margin-top: 0;
+  margin-top: 120px;
   border-top: 1px solid var(--border-soft);
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 64px;
+  padding-bottom: 48px;
 }
-
-/* main padding handled above by the flex layout — no bottom padding needed
-   since the footer now sits directly after it within the 100vh column */
- 
