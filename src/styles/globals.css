@@ -552,6 +552,8 @@ section[aria-label="Hero"] h1 {
   text-align: left;
   font-size: 3rem;
   line-height: 1.06;
+  letter-spacing: -0.02em;
+  word-spacing: -0.05em;
   margin-bottom: 0;
   animation: heroFadeUp .8s ease both;
 }
@@ -583,23 +585,24 @@ section[aria-label="Hero"] h1 {
 /* Description */
 section[aria-label="Hero"] p.text-lg {
   max-width: 56ch;
-  font-size: 22px;
-  line-height: 1.6;
-  margin-top: 32px;
+  font-size: 20px;
+  line-height: 1.45;
+  word-spacing: -0.03em;
+  margin-top: 20px;
   animation: heroFadeUp .8s ease both;
 }
 
 section[aria-label="Hero"] p.text-lg + .flex {
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 /* Stats row */
 section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10 {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 48px;
-  margin-bottom: 1rem;
+  gap: 16px;
+  margin-top: 32px;
+  margin-bottom: 0.75rem;
   animation: heroFadeUp .8s ease both;
 }
 
@@ -626,8 +629,8 @@ section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10 > .flex.flex-col.items-st
 
 /* Feature / trust indicators row */
 section[aria-label="Hero"] .flex.flex-wrap.items-center {
-  gap: 32px;
-  margin-top: 40px;
+  gap: 24px;
+  margin-top: 28px;
 }
 
 /* Minor spacing corrections used across the hero */
