@@ -483,9 +483,9 @@ function AuthCard() {
 
       {/* Brand header */}
       <div className="flex items-center gap-3 mb-6 relative">
-        <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-sm shrink-0">
-          <Zap className="h-5 w-5 text-white" />
-        </div>
+        <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm shrink-0">
+  <img src="https://images.seeklogo.com/logo-png/37/1/bni-2020-logo-png_seeklogo-378515.png" alt="ResolveX logo" className="w-full h-full object-cover" />
+</div>
         <div>
           <p className="text-[15px] font-bold text-text-theme leading-tight">
             Resolve<span className="text-primary">X</span>
