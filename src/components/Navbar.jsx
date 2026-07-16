@@ -10,9 +10,9 @@ export default function Navbar() {
       <div className="container-custom h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 bg-primary rounded-xl flex items-center justify-center">
-            <Zap className="h-4 w-4 text-white" />
-          </div>
+         <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm shrink-0">
+  <img src="https://images.seeklogo.com/logo-png/37/1/bni-2020-logo-png_seeklogo-378515.png" alt="ResolveX logo" className="w-full h-full object-cover" />
+</div>
           <span className="text-lg font-bold text-text-theme">
             Resolve<span className="text-primary">X</span>
           </span>
@@ -21,7 +21,7 @@ export default function Navbar() {
         {/* Theme toggle only */}
         <button
           onClick={toggleTheme}
-          className="h-9 w-9 rounded-xl flex items-center justify-center hover:bg-bg-alt transition-colors"
+          className="h-9 w-9 rounded-xl flex items-center justify-center hover:bg-bg-alt transition-colors" 
           aria-label="Toggle theme"
         >
           {theme === 'light'
