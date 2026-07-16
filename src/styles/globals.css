@@ -1,223 +1,694 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400;1,14..32,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
-/* ============================================================
-   LIGHT THEME TOKENS (default)
-   ============================================================ */
+/* ==========================================================
+   LIGHT THEME
+========================================================== */
+
 :root {
-  --bg:         #FAF7F2;
-  --bg-alt:     #F5EFE6;
-  --surface:    #FFFCF8;
-  --card:       #FFFFFF;
-  --sidebar:    #F5EFE6;
-  --border:     #E8DED2;
-  --border-soft:#EDE6DC;
+  /* Backgrounds */
+  --bg: #ffffff;
+  --bg-alt: #f8f8f8;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --sidebar: #ffffff;
 
-  --primary:    #C86B3C;
-  --primary-hover: #B05C30;
-  --primary-light: #FBF0EB;
-  --primary-mid:   #F0D5C8;
+  /* Borders */
+  --border: #e5e5e5;
+  --border-soft: #f2f2f2;
 
-  --secondary:  #7A9E7E;
-  --secondary-light: #EDF3EE;
-  --secondary-hover: #6A8E6D;
+  /* Brand */
+  --primary: #e10600;
+  --primary-hover: #c00000;
+  --primary-light: #ffeaea;
 
-  --text:       #2F2A24;
-  --muted:      #6B6258;
-  --subtle:     #9A8E84;
+  /* Typography */
+  --text: #000000;
+  --text-secondary: #333333;
+  --muted: #666666;
+  --subtle: #888888;
 
-  --success:    #5A9E6A;
-  --warning:    #D4820A;
-  --danger:     #C0392B;
-  --info:       #4A7FA5;
+  /* Status */
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #2563eb;
 
-  --shadow-sm:  0 1px 3px 0 rgb(47 42 36 / 0.07), 0 1px 2px -1px rgb(47 42 36 / 0.04);
-  --shadow-md:  0 4px 16px -2px rgb(47 42 36 / 0.10), 0 2px 6px -2px rgb(47 42 36 / 0.06);
-  --shadow-lg:  0 12px 40px -6px rgb(47 42 36 / 0.14), 0 4px 12px -4px rgb(47 42 36 / 0.08);
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,.05);
+  --shadow-md: 0 8px 18px rgba(0,0,0,.08);
+  --shadow-lg: 0 18px 40px rgba(0,0,0,.12);
 }
 
-/* ============================================================
-   DARK THEME TOKENS
-   ============================================================ */
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
 .dark {
-  --bg:         #1C1814;
-  --bg-alt:     #231E19;
-  --surface:    #26211B;
-  --card:       #2E2820;
-  --sidebar:    #221D18;
-  --border:     #3D342A;
-  --border-soft:#352D24;
+  --bg: #111111;
+  --bg-alt: #181818;
+  --surface: #1f1f1f;
+  --card: #252525;
+  --sidebar: #181818;
 
-  --primary:    #D4845A;
-  --primary-hover: #C06B40;
-  --primary-light: #3D2518;
-  --primary-mid:   #52321F;
+  --border: #2d2d2d;
+  --border-soft: #333333;
 
-  --secondary:  #8FB394;
-  --secondary-light: #1E2D20;
-  --secondary-hover: #7FA384;
+  --primary: #ff2a2a;
+  --primary-hover: #ff0000;
+  --primary-light: #3d1111;
 
-  --text:       #F0EAE0;
-  --muted:      #B8A99A;
-  --subtle:     #7A6E64;
-
-  --success:    #6AB878;
-  --warning:    #E09A30;
-  --danger:     #E05545;
-  --info:       #6099BE;
-
-  --shadow-sm:  0 1px 3px 0 rgb(0 0 0 / 0.20);
-  --shadow-md:  0 4px 16px -2px rgb(0 0 0 / 0.30);
-  --shadow-lg:  0 12px 40px -6px rgb(0 0 0 / 0.40);
+  --text: #ffffff;
+  --text-secondary: #dddddd;
+  --muted: #bbbbbb;
+  --subtle: #999999;
 }
 
-/* ============================================================
-   TAILWIND V4 THEME CONFIGURATION
-   ============================================================ */
+/* ==========================================================
+   TAILWIND V4 TOKENS
+========================================================== */
+
 @theme {
-  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --font-family-sans: "Inter", sans-serif;
 
   --color-bg: var(--bg);
   --color-bg-alt: var(--bg-alt);
   --color-surface: var(--surface);
   --color-card: var(--card);
   --color-sidebar: var(--sidebar);
-  --color-border-theme: var(--border);
-  --color-border-soft: var(--border-soft);
 
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-light: var(--primary-light);
-  --color-primary-mid: var(--primary-mid);
-
-  --color-secondary: var(--secondary);
-  --color-secondary-light: var(--secondary-light);
-  --color-secondary-hover: var(--secondary-hover);
 
   --color-text-theme: var(--text);
+  --color-secondary-text: var(--text-secondary);
   --color-muted-theme: var(--muted);
-  --color-subtle-theme: var(--subtle);
 
-  --color-success-theme: var(--success);
-  --color-warning-theme: var(--warning);
-  --color-danger-theme: var(--danger);
-  --color-info-theme: var(--info);
+  --color-border-theme: var(--border);
+  --color-border-soft: var(--border-soft);
 
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
-
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-2xl: 32px;
 }
 
-/* ============================================================
-   BASE
-   ============================================================ */
-*, *::before, *::after { box-sizing: border-box; }
+/* ==========================================================
+   RESET
+========================================================== */
 
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.2s ease;
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
 }
 
-/* ============================================================
-   CUSTOM SCROLLBAR
-   ============================================================ */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-alt); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+html{
+    scroll-behavior:smooth;
+}
 
-/* ============================================================
+body{
+    margin:0;
+    padding:0;
+    font-family:Inter,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    transition:.3s;
+}
+
+/* ==========================================================
+   FORCE TEXT COLORS
+========================================================== */
+
+/* Headings */
+
+h1,h2,h3,h4,h5,h6{
+    color:var(--text) !important;
+    font-weight:700;
+}
+
+/* Paragraphs */
+
+p,
+span,
+label,
+small,
+td,
+th,
+li,
+div{
+    color:var(--text-secondary);
+}
+
+/* Dashboard numbers */
+
+.stat-value{
+    color:var(--text) !important;
+    font-weight:700;
+}
+
+/* Main titles */
+
+.title{
+    color:var(--text) !important;
+}
+
+/* Subtitle */
+
+.subtitle{
+    color:var(--subtle) !important;
+}
+
+/* ==========================================================
+   LINKS
+========================================================== */
+
+a{
+    color:var(--primary);
+    text-decoration:none;
+}
+
+a:hover{
+    color:var(--primary-hover);
+}
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.sidebar{
+    background:var(--sidebar);
+    color:var(--text);
+}
+
+.sidebar a{
+    color:var(--text);
+}
+
+.sidebar a svg{
+    color:var(--primary);
+}
+
+.sidebar a:hover{
+    color:var(--primary);
+}
+
+.sidebar .active{
+    background:var(--primary);
+    color:#fff !important;
+}
+
+.sidebar .active svg{
+    color:#fff;
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow:var(--shadow-sm);
+    color:var(--text);
+}
+
+.card h2,
+.card h3,
+.card h4{
+    color:var(--text);
+}
+
+.card p{
+    color:var(--muted);
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.btn-primary{
+    background:var(--primary);
+    color:#fff !important;
+    border:none;
+    border-radius:12px;
+    padding:12px 24px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.btn-primary:hover{
+    background:var(--primary-hover);
+}
+
+.btn-outline{
+    background:var(--card);
+    color:var(--primary);
+    border:2px solid var(--primary);
+}
+
+.btn-outline:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+/* Semantic highlight elements */
+mark{
+    background:transparent;
+    color:var(--primary);
+    font-weight:700;
+    padding:0 .12rem;
+}
+
+strong.important,
+em.important,
+span.important{
+    color:var(--primary) !important;
+    font-weight:700;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+input,
+textarea,
+select{
+
+    background:var(--card);
+    color:var(--text);
+
+    border:1px solid var(--border);
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#999;
+}
+
+/* ==========================================================
+   TABLES
+========================================================== */
+
+table{
+    color:var(--text);
+}
+
+thead{
+    color:var(--text);
+}
+
+tbody{
+    color:var(--text-secondary);
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#d9d9d9;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--primary);
+}
+
+/* ==========================================================
    SELECTION
-   ============================================================ */
-::selection {
-  background-color: rgb(200 107 60 / 0.15);
-  color: var(--primary);
+========================================================== */
+
+::selection{
+    background:var(--primary-light);
+    color:var(--primary);
 }
 
-/* ============================================================
-   FOCUS
-   ============================================================ */
-*:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-  border-radius: 4px;
+/* ==========================================================
+   CUSTOM UTILITY CLASSES
+========================================================== */
+
+.text-theme{
+    color:var(--text) !important;
 }
 
-/* ============================================================
-   LAYOUT HELPERS
-   ============================================================ */
-.container-custom {
-  width: 100%;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-@media (min-width: 640px) {
-  .container-custom { padding-left: 2rem; padding-right: 2rem; }
-}
-@media (min-width: 1024px) {
-  .container-custom { padding-left: 3rem; padding-right: 3rem; }
+.text-secondary{
+    color:var(--text-secondary) !important;
 }
 
-/* ============================================================
-   KEYFRAME ANIMATIONS
-   ============================================================ */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
-}
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position:  200% 0; }
-}
-@keyframes pulse-ring {
-  0%, 100% { box-shadow: 0 0 0 0 rgb(200 107 60 / 0.30); }
-  50%       { box-shadow: 0 0 0 8px rgb(200 107 60 / 0); }
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+.text-muted{
+    color:var(--muted) !important;
 }
 
-.animate-float       { animation: float 3s ease-in-out infinite; }
-.animate-pulse-ring  { animation: pulse-ring 2s ease-in-out infinite; }
-.animate-fadeUp      { animation: fadeUp 0.5s ease-out forwards; }
-
-/* ============================================================
-   CARD GLASS EFFECT (light)
-   ============================================================ */
-.card-warm {
-  background-color: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.card-warm:hover {
-  box-shadow: var(--shadow-md);
+.text-primary{
+    color:var(--primary) !important;
 }
 
-/* ============================================================
-   GRADIENT TEXT
-   ============================================================ */
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, #E8895A 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.text-white-theme{
+    color:#fff !important;
+}
+
+.bg-theme{
+    background:var(--bg);
+}
+
+.bg-primary{
+    background:var(--primary);
+}
+
+.border-theme{
+    border-color:var(--border);
+}
+
+/* Utility for marking important words in red */
+.important,
+.important-word,
+.highlight-important{
+    color:var(--primary) !important;
+    font-weight:700;
+}
+
+/* Broad overrides for common utility classes to enforce theme */
+.text-white{ color:#fff !important; }
+.text-black{ color:#000 !important; }
+.bg-white{ background:var(--bg) !important; }
+.bg-black{ background:#000 !important; }
+.text-danger-theme, .text-danger{ color:var(--primary) !important; }
+.text-text-theme{ color:var(--text) !important; }
+.text-muted-theme{ color:var(--muted) !important; }
+.text-subtle-theme{ color:var(--subtle) !important; }
+.bg-card{ background:var(--card) !important; }
+.bg-bg-alt{ background:var(--bg-alt) !important; }
+.bg-sidebar{ background:var(--sidebar) !important; }
+.border-border-theme{ border-color:var(--border) !important; }
+.border-primary{ border-color:var(--primary) !important; }
+.bg-primary-light{ background:var(--primary-light) !important; }
+.bg-primary{ background:var(--primary) !important; }
+.text-primary{ color:var(--primary) !important; }
+
+/* Ensure icons using currentColor inherit the theme color */
+svg{ color:inherit; }
+
+/* Reduce excessive vertical spacing on the landing page hero */
+section[aria-label="Hero"] .container-custom{
+        padding-top:3rem !important;
+        padding-bottom:3rem !important;
+}
+
+@media (min-width: 768px){
+    section[aria-label="Hero"] .container-custom{
+        padding-top:3.5rem !important;
+        padding-bottom:3.5rem !important;
+    }
+}
+
+/* Tighter hero layout overrides */
+section[aria-label="Hero"]{
+        min-height:70vh !important;
+        align-items:flex-start !important;
+}
+
+section[aria-label="Hero"] .grid{
+        gap:1.5rem !important;
+}
+
+/* ==========================
+   Landing Page - Premium SaaS Layout
+   ========================== */
+
+/* Container */
+.container-custom{
+    width:100%;
+    max-width:1440px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:64px;
+    padding-right:64px;
+}
+
+/* Navbar / header */
+header.fixed.top-0.left-0.right-0.z-50.bg-bg\/90{
+    height:72px;
+}
+header .container-custom.h-16{ height:80px; }
+header .container-custom{ padding-left:64px; padding-right:64px; }
+header .container-custom .h-9{ height:40px; width:40px; }
+
+/* Hero section full viewport minus navbar, centered */
+section[aria-label="Hero"]{
+    display:grid;
+    grid-template-columns:1fr;
+    min-height:calc(100vh - 80px);
+    align-items:center;
+    padding-top:32px; /* per spec */
+    padding-bottom:96px; /* per spec */
+    position:relative;
+    overflow:hidden;
+}
+
+/* Space after navbar */
+section[aria-label="Hero"]{ margin-top:64px; }
+@media (max-width: 1024px){ section[aria-label="Hero"]{ margin-top:48px; } }
+@media (max-width: 768px){ section[aria-label="Hero"]{ margin-top:32px; } }
+
+/* Desktop two-column grid using CSS Grid with 58/42 split */
+@media (min-width: 1200px){
+    section[aria-label="Hero"] .grid{
+        display:grid !important;
+        grid-template-columns:58% 42% !important;
+        align-items:center !important;
+        gap:96px !important; /* per spec */
+    }
+}
+@media (min-width: 1024px) and (max-width:1199px){
+    section[aria-label="Hero"] .grid{
+        display:grid !important;
+        grid-template-columns:58% 42% !important;
+        align-items:center !important;
+        gap:64px !important;
+    }
+}
+
+/* Left hero column */
+section[aria-label="Hero"] .grid > div:first-child{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    align-items:flex-start;
+}
+section[aria-label="Hero"] .grid > div:first-child{ max-width:650px; }
+
+/* Heading and description widths */
+section[aria-label="Hero"] h1{
+    max-width:620px;
+    white-space:normal;
+    font-weight:800;
+    text-align:left;
+    font-size:clamp(64px, 7vw, 88px);
+    line-height:0.95;
+    margin-bottom:0; /* use gaps */
+}
+section[aria-label="Hero"] p.text-lg{ max-width:560px; font-size:22px; line-height:1.6; margin-top:32px; }
+
+/* Spacing specifics using gap preferences */
+/* heading -> description handled by parent gap:24px */
+/* description -> stats */
+
+/* Description -> Stats spacing */
+section[aria-label="Hero"] p.text-lg + .flex{ margin-top:48px; }
+
+/* Stats container: display flex with gap 24px */
+section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10{
+    display:flex !important;
+    gap:24px !important;
+    margin-top:48px !important; /* per spec */
+    margin-bottom:0 !important;
+}
+
+/* Each stat card adjustments (targets stat pills inside hero) */
+section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10 > .flex.flex-col.items-start.px-4.py-3{
+    padding:24px !important;
+    border-radius:20px !important;
+    background:var(--card) !important;
+    border:1px solid #ECECEC !important;
+    box-shadow:0 8px 30px rgba(0,0,0,.06) !important;
+}
+
+/* Features / trust indicators spacing */
+section[aria-label="Hero"] .flex.flex-wrap.items-center{ gap:32px !important; margin-top:40px !important; }
+
+/* Right column: auth card */
+
+section[aria-label="Hero"] .grid > div:last-child{ display:flex; justify-content:center; align-items:center; }
+section[aria-label="Hero"] .relative.w-full.max-w-\[420px\]{
+    max-width:480px !important;
+    padding:40px !important;
+    border-radius:28px !important;
+    background:var(--card) !important;
+    border:1px solid #EEEEEE !important;
+    box-shadow: 0 30px 80px rgba(0,0,0,.08) !important;
+    transform:translateY(0);
+    align-self:center !important; /* vertically align with hero heading */
+}
+
+/* Ensure auth card doesn't stick to right edge */
+
+section[aria-label="Hero"] .grid > div:last-child{ padding-right:32px; }
+
+/* Ensure internal panels inside auth card use requested padding */
+section[aria-label="Hero"] .relative.w-full.max-w-\[420px\] .p-7,
+section[aria-label="Hero"] .relative.w-full.max-w-\[420px\] .p-8{
+    padding:40px !important;
+}
+
+/* Responsive scaling */
+
+/* Responsive rules per spec */
+@media (max-width: 1200px){
+    /* Grid becomes 1fr 420px */
+    section[aria-label="Hero"] .grid{ grid-template-columns:1fr 420px !important; gap:48px !important; }
+}
+
+@media (max-width: 1024px){
+    /* Single column: login card below hero */
+    section[aria-label="Hero"] .grid{ grid-template-columns:1fr !important; }
+    section[aria-label="Hero"] .grid > div:last-child{ justify-content:flex-start; padding-right:0; }
+}
+
+@media (max-width: 768px){
+    .container-custom{ padding-left:32px; padding-right:32px; }
+    section[aria-label="Hero"] h1{ font-size:52px !important; }
+    section[aria-label="Hero"] .grid{ gap:24px !important; }
+}
+
+@media (max-width: 480px){
+    .container-custom{ padding-left:20px; padding-right:20px; }
+    section[aria-label="Hero"] h1{ font-size:42px !important; }
+    /* Stats vertical */
+    section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10{ flex-direction:column !important; gap:16px !important; }
+}
+
+/* Background subtle radial gradients */
+section[aria-label="Hero"]::before{
+        content:"";
+        position:absolute;
+        left:-10%;
+        top:-10%;
+        width:60%;
+        height:60%;
+        background:radial-gradient(circle at left top, rgba(225,0,0,.05), transparent 40%);
+        pointer-events:none;
+}
+section[aria-label="Hero"]::after{
+        content:"";
+        position:absolute;
+        right:-5%;
+        bottom:5%;
+        width:45%;
+        height:45%;
+        background:radial-gradient(circle at right center, rgba(0,112,255,.04), transparent 35%);
+        pointer-events:none;
+}
+
+/* Button styles */
+.btn-primary{
+        height:56px;
+        border-radius:14px;
+        background:var(--primary);
+        color:#fff !important;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:0 24px;
+        transition:transform .18s ease, box-shadow .18s ease;
+}
+.btn-primary:hover{
+        transform:translateY(-2px);
+        box-shadow:0 12px 30px rgba(225,0,0,.25);
+}
+
+/* Cards hover */
+.card, section[aria-label="Hero"] .flex.flex-col.items-start.px-4.py-3{
+        transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover, section[aria-label="Hero"] .flex.flex-col.items-start.px-4.py-3:hover{
+        transform:translateY(-4px);
+}
+
+/* Auth card animation */
+@keyframes authCardIn{ from{ opacity:0; transform:scale(.96) translateY(8px);} to{ opacity:1; transform:none;} }
+.relative.w-full.max-w-\[420px\]{ animation: authCardIn .5s cubic-bezier(.22,1,.36,1) both; }
+
+/* Hero fade up */
+@keyframes heroFadeUp{ from{ opacity:0; transform:translateY(12px);} to{ opacity:1; transform:none;} }
+section[aria-label="Hero"] h1,
+section[aria-label="Hero"] p.text-lg,
+section[aria-label="Hero"] .flex.flex-wrap.gap-3.mb-10{
+        animation: heroFadeUp .8s ease both;
+}
+
+/* Navbar shadow on scroll */
+header.scrolled{ box-shadow: 0 6px 20px rgba(16,16,16,0.08); }
+
+/* Footer spacing and styles */
+footer{
+    margin-top:120px; /* ensure footer begins after 120px */
+    border-top:1px solid #EEEEEE;
+    padding-top:64px;
+    padding-bottom:48px;
+}
+
+/* Page bottom padding to prevent content touching footer */
+main.bg-bg.text-text-theme{ padding-bottom:120px; }
+@media (max-width: 1024px){ main.bg-bg.text-text-theme{ padding-bottom:96px; } }
+@media (max-width: 768px){ main.bg-bg.text-text-theme{ padding-bottom:64px; } }
+
+
+/* Button hover lift already handled via .btn-primary */
+
+
+/* Utility: statistics layout when wrapping on small screens */
+section[aria-label="Hero"] .flex.flex-wrap{ flex-wrap:wrap; }
+
+
+/* Reduce spacing for specific hero elements */
+section[aria-label="Hero"] .mb-6{ margin-bottom:0.75rem !important; }
+section[aria-label="Hero"] .mb-5{ margin-bottom:0.5rem !important; }
+section[aria-label="Hero"] .mb-10{ margin-bottom:1rem !important; }
+
+/* Scale heading down slightly for better fit */
+section[aria-label="Hero"] h1{
+        font-size:3rem !important;
+        line-height:1.06 !important;
+}
+@media (min-width: 768px){
+    section[aria-label="Hero"] h1{ font-size:3.5rem !important; }
+}
+@media (min-width: 1280px){
+    section[aria-label="Hero"] h1{ font-size:4rem !important; }
+}
+
+/* Narrow the max-width of the heading description for better balance */
+section[aria-label="Hero"] p.text-lg{ max-width:56ch !important; }
+
+/* Slightly pull the auth card higher */
+section[aria-label="Hero"] .relative.z-10{ padding-top:0 !important; }
+
+/* ==========================================================
+   RED GRADIENT TEXT
+========================================================== */
+
+.gradient-text{
+
+    background:linear-gradient(90deg,#e10600,#ff3b3b);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
