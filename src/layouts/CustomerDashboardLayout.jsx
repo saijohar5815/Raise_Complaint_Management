@@ -43,9 +43,9 @@ function Sidebar({ open, onClose }) {
         {/* Logo */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-border-theme">
           <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shrink-0">
-              <Shield className="w-4 h-4 text-white" />
-            </div>
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-sm shrink-0">
+  <img src="https://images.seeklogo.com/logo-png/37/1/bni-2020-logo-png_seeklogo-378515.png" alt="ResolveX logo" className="w-full h-full object-cover" />
+</div>
             <span className="font-bold text-text-theme text-lg tracking-tight">ResolveX</span>
           </Link>
           <button
